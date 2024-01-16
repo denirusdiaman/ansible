@@ -1,5 +1,8 @@
 - hosts: all
   tasks:
-    - name: print facts
-      debug:
-        msg: "IPv4 address: {{ ansible_default_ipv4.address }}"
+  - debug:
+      var: ansible_facts["all_ipv6_addresses"]|type_debug
+  - debug:
+      var: ansible_facts["memory_mb"]|type_debug
+  - debug:
+      var: ansible_facts["machine"]|type_debug
