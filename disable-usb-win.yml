@@ -1,5 +1,7 @@
 ---
 - name: Disable USB Device for Windows
+  host : all
+  gather_facts: true
   tasks:
   ansible.windows.win_regedit:
     path: HKLM:\SYSTEM\CurrentControlSet\Services\USBSTOR
