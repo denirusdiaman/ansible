@@ -1,6 +1,6 @@
 ---
 - name: Disable USB Device for Windows
-  host : all
+  hosts : all
   gather_facts: true
   tasks:
   ansible.windows.win_regedit:
