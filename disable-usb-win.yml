@@ -6,6 +6,6 @@
     - name: Set registry key to disable USBSTOR
       ansible.windows.win_regedit:
         path: HKLM:\SYSTEM\CurrentControlSet\Services\USBSTOR
-        name: Start
-        data: 4
+        name: "Start"
+        data: "4"
         type: dword
