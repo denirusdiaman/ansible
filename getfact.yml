@@ -5,6 +5,16 @@
   - debug:
       var: ansible_hostname
   - debug:
+      var: ansible_domain
+  - debug:
+      var: ansible_fqdn
+  - debug:
       var: ansible_all_ipv4_addresses
   - debug:
       var: ansible_distribution
+  - debug:
+      var: ansible_machine
+  - debug:
+      var: ansible_memtotal_mb
+  - debug: 
+      var: ansible_facts
