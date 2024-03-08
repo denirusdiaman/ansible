@@ -31,9 +31,9 @@
 
   - name: CSV - Write information into .csv file
     lineinfile:
-    insertafter: EOF
-    dest: "{{ output_path }}/{{ filename }}"
-    line: "{{ csv_tmp }}"
+      insertafter: EOF
+      dest: "{{ output_path }}/{{ filename }}"
+      line: "{{ csv_tmp }}"
 
   - name: CSV - Blank lines removal
     lineinfile:
