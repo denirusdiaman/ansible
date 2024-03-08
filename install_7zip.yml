@@ -11,8 +11,3 @@
     win_package:
       path: C:\temp\7z.msi
       state: present
-
-  - name: Ensure 7-Zip is not installed through win_package
-    win_package:
-      path: C:\temp\7z.msi
-      state: absent
