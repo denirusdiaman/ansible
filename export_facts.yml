@@ -1,38 +1,22 @@
----
-# ansible v2.11
-- name: Write device_facts into a csv file
-  hosts: all
-  gather_facts: true
+# Ansible playbook to generate a CSV containing OS & CPU counts for 
+# Windows 11 hosts
 
-  vars:
-    output_path: "D://"
-    filename: "device_report_{{ ansible_hostname }}.csv"
-
+- hosts: all
+  gather_facts: yes
   tasks:
-  - name: CSV - Generate output filename
-    set_fact: date="{{lookup('pipe','date +%Y%m%d')}}"
-    run_once: true
 
-  - name: CSV - Create file and set the header
-    lineinfile:
-      dest: "{{ output_path }}/{{ filename }}"
-      line:
-        ansible_hostname,ansible_domain,ansible_fqdn,ansible_all_ipv4_addresses,ansible_distribution,ansible_machine,ansible_memtotal_mb
-      create: yes
-      state: present
+  # This is how filtering can be done
+  # In this example, we'll end the play for hosts that do NOT have '2012'
+  # in the ansible_os_name field.
+  - meta: end_host
+    when: ("Windows 11" not in ansible_os_name)
 
-  - name: CSV - Get devices facts
-    set_fact:
-      csv_tmp: >
-        {{ ansible_hostname }},{{ ansible_domain }},{{ ansible_fqdn }},{{ ansible_all_ipv4_addresses }},{{ ansible_distribution }},{{ ansible_machine }},{{ ansible_memtotal_mb }}
-  - name: CSV - Write information into .csv file
-    lineinfile:
-      insertafter: EOF
-      dest: "{{ output_path }}/{{ filename }}"
-      line: "{{ csv_tmp }}"
+  # Only matching hosts are left now
 
-  - name: CSV - Blank lines removal
-    lineinfile:
-      path: "./{{ output_path }}/{{ filename }}"
-      state: absent
-      regex: '^\s*$'
+  # Use the template module to create a CSV file
+  - template:
+      src: os_cpu_count.csv.j2
+      dest: win11_os_report.csv
+    vars:
+      _hosts: "{{ ansible_play_hosts|list }}"
+    delegate_to: localhost
