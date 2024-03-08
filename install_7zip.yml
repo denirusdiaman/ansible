@@ -4,15 +4,15 @@
   tasks:
   - name: Download the 7-Zip package
       win_get_url:
-       url: https://www.7-zip.org/a/7z2401-x64.msi
-       dest: C:\temp\7z.msi
+        url: https://www.7-zip.org/a/7z2401-x64.msi
+        dest: C:\temp\7z.msi
 
   - name: Ensure 7-Zip is installed through win_package
       win_package:
-       path: C:\temp\7z.msi
-       state: present
+        path: C:\temp\7z.msi
+        state: present
 
   - name: Ensure 7-Zip is not installed through win_package
       win_package:
-       path: C:\temp\7z.msi
-       state: absent
+        path: C:\temp\7z.msi
+        state: absent
