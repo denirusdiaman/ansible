@@ -17,6 +17,7 @@
   - template:
       src: /home/itops/template_ansible/os_cpu_count.csv.j2
       dest: /home/itops/template_ansible/win11_os_report.csv
+      remote_src: yes
     vars:
       _hosts: "{{ ansible_play_hosts|list }}"
     delegate_to: localhost
