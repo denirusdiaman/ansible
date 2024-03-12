@@ -15,8 +15,8 @@
 
   # Use the template module to create a CSV file
   - template:
-      src: os_cpu_count.csv.j2
-      dest: win11_os_report.csv
+      src: /home/itops/template_ansible/os_cpu_count.csv.j2
+      dest: /home/itops/template_ansible/win11_os_report.csv
     vars:
       _hosts: "{{ ansible_play_hosts|list }}"
     delegate_to: localhost
