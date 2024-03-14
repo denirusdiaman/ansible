@@ -12,7 +12,7 @@
       path: C:\temp\S2_STORE_NEW.msi
       state: present
       arguments:
-      - /quite
+      - /quiet
       - /norestart
 
   - name: Download POS Retail
@@ -25,5 +25,5 @@
       path: C:\temp\POSRetailSetup.msi
       state: present
       arguments:
-      - /quite
+      - /quiet
       - /norestart
