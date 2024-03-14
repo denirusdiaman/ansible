@@ -1,13 +1,23 @@
 ---
-- hosts: all
+- hosts: it
   gather_facts: no
   tasks:
-  - name: Download s2Store
-    win_get_url:
+  - name: Download S2 Store
+    ansible.windows.win_get_url:
       url: ftp://172.16.195.13/Applikasi%20Retail/S2_STORE_NEW.msi
       dest: C:\temp\S2_STORE_NEW.msi
 
-  - name: Ensure S2 Store is installed with win package
+  - name: Install S2 Store
     win_package:
       path: C:\temp\S2_STORE_NEW.msi
+      state: present
+
+  - name: Download POS Retail
+    ansible.windows.win_get_url:
+      url: ftp://172.16.195.13/Applikasi%20Retail/Setup%20POS%20Retail/POSRetailSetup.msi
+      dest: C:\temp\POSRetailSetup.msi
+
+  - name: Install POS Retail
+    win_package:
+      path: C:\temp\POSRetailSetup.msi
       state: present
