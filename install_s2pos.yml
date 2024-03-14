@@ -6,8 +6,6 @@
     win_get_url:
       url: ftp://172.16.195.13/Applikasi%20Retail/S2_STORE_NEW.msi
       dest: C:\temp\S2_STORE_NEW.msi
-      url_username: ithardware
-      url_password: ithar00
     vars:
       ansible_shell_type: powershell
 
@@ -22,8 +20,6 @@
     win_get_url:
       url: ftp://172.16.195.13/Applikasi%20Retail/Setup%20POS%20Retail/POSRetailSetup.msi
       dest: C:\temp\POSRetailSetup.msi
-      url_username: ithardware
-      url_password: ithar00
     vars:
       ansible_shell_type: powershell
 
