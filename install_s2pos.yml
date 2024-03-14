@@ -11,6 +11,9 @@
     win_package:
       path: C:\temp\S2_STORE_NEW.msi
       state: present
+      arguments:
+      - /quite
+      - /norestart
 
   - name: Download POS Retail
     win_get_url:
@@ -21,3 +24,6 @@
     win_package:
       path: C:\temp\POSRetailSetup.msi
       state: present
+      arguments:
+      - /quite
+      - /norestart
