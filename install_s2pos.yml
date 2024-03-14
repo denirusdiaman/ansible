@@ -11,6 +11,10 @@
     win_package:
       path: C:\temp\S2_STORE_NEW.msi
       state: present
+      arguments: 
+      - /i
+      - /quiet
+      - /norestart
 
   - name: Download POS Retail
     ansible.windows.win_get_url:
@@ -21,3 +25,7 @@
     win_package:
       path: C:\temp\POSRetailSetup.msi
       state: present
+      arguments: 
+      - /i
+      - /quiet
+      - /norestart
