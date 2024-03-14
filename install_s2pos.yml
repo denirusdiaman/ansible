@@ -1,5 +1,5 @@
 ---
-- hosts: it
+- hosts: all
   gather_facts: no
   tasks:
   - name: Download S2 Store
