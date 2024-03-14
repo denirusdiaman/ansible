@@ -7,17 +7,7 @@
       url: ftp://172.16.195.13/Applikasi%20Retail/S2_STORE_NEW.msi
       dest: C:\temp\S2_STORE_NEW.msi
 
-  - name: Download POS Retail
-    win_get_url:
-      url: ftp://172.16.195.13/Applikasi%20Retail/Setup%20POS%20Retail/POSRetailSetup.msi
-      dest: C:\temp\POSRetailSetup.msi
-
   - name: Ensure S2 Store is installed with win package
     win_package:
       path: C:\temp\S2_STORE_NEW.msi
-      state: present
-      
-  - name: Ensure Pos Retail is installed with win package
-    win_package:
-      path: C:\temp\POSRetailSetup.msi
       state: present
