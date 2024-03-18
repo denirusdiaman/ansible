@@ -14,7 +14,7 @@
       var: ansible_memtotal_mb
   - template:
       src: template_facts.j2
-      dest: /home/itops/win11-facts.csv
+      dest: D://win11-facts.csv
     vars:
       _hosts: "{{ ansible_play_hosts|list }}"
     delegate_to: localhost
