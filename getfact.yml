@@ -9,15 +9,9 @@
   - debug:
       var: ansible_fqdn
   - debug:
-      var: ansible_all_ipv4_addresses
-  - debug:
       var: ansible_distribution
   - debug:
-      var: ansible_machine
-  - debug:
       var: ansible_memtotal_mb
-  - debug: 
-      var: ansible_facts
   - template:
       src: template_facts.j2
       dest: C:/temp/win11-facts.csv
