@@ -20,7 +20,7 @@
       var: ansible_facts
   - template:
       src: template_facts.j2
-      dest: win11-facts.csv
+      dest: C:/temp/win11-facts.csv
     vars:
       _hosts: "{{ ansible_play_hosts|list }}"
     delegate_to: localhost
