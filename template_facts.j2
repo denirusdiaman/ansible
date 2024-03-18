@@ -1,0 +1,4 @@
+hostname,domain,fqdn,distribution,memtotal_mb
+{% for i in _hosts %}
+{{ i }},{{ hostvars[i]['ansible_facts']['hostname'] }},{{ hostvars[i]['ansible_facts']['domain'] }},{{ hostvars[i]['ansible_facts']['fqdn'] }},{{ hostvars[i]['ansible_facts']['distribution'] }},{{ hostvars[i]['ansible_facts']['memtotal_mb'] }}
+{% endfor %}
