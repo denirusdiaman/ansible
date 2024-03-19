@@ -8,7 +8,7 @@
     mytype: 'dword'
   tasks:
     - name: Set registry key to disable USBSTOR
-      ansible.windows.win_regedit:
+      win_regedit:
         path: "{{ mypath }}"
         name: "{{ myname }}"
         data: "{{ mydata }}"
