@@ -1,0 +1,10 @@
+---
+- name: Konfigurasi Windows
+  hosts: AHI-XX
+  tasks:
+    - name: Download dan install KB2693643
+      win_command: |
+        $url = "https://download.microsoft.com/download/1/D/8/1D8B5022-5477-4B9A-8104-6A71FF9D98AB/WindowsTH-KB2693643-x64.msu"
+        $output = "C:\Temp\kb2693643.exe"
+        Invoke-WebRequest -Uri $url -OutFile $output
+        Start-Process -FilePath $output -ArgumentList "/quiet /norestart" -Wait
